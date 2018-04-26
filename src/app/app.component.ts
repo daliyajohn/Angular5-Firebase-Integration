@@ -12,7 +12,7 @@ export class AppComponent {
   items: any;
   constructor(db: AngularFireDatabase) {
     db
-      .list('items')
+      .list('/items')
       .snapshotChanges()
       .map(res => {
         this.items = res;
