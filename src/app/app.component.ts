@@ -12,19 +12,7 @@ export class AppComponent {
   title = 'app';
   items: any;
 
-  constructor(private db: AngularFireDatabase) {
-    // .snapshotChanges()
-    // .pipe(
-    //   map(res => {
-    //     this.items = res;
-    //     console.log('falllmllnml', this.items);
-    //   }),
-    //   catchError((error: any) => {
-    //     console.log(error.json());
-    //     return Observable.throw(error.json());
-    //   })
-    // );
-  }
+  constructor(private db: AngularFireDatabase) {}
   fetchAgain() {
     this.items = this.db
       .list('items')
