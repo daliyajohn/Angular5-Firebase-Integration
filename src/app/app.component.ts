@@ -13,12 +13,6 @@ export class AppComponent {
   items: any;
 
   constructor(private db: AngularFireDatabase) {
-    this.db
-      .list('/items')
-      .snapshotChanges()
-      .map(res => {
-        console.log(res);
-      });
     // .snapshotChanges()
     // .pipe(
     //   map(res => {
@@ -30,5 +24,14 @@ export class AppComponent {
     //     return Observable.throw(error.json());
     //   })
     // );
+  }
+  fetchAgain() {
+    this.items = this.db
+      .list('items')
+      .valueChanges()
+      .map(res => {
+        console.log(res);
+      });
+    console.log(this.items);
   }
 }
